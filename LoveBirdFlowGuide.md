@@ -1,5 +1,19 @@
 # Love Bird Game Flow Guide
 
+## Blueprint Setup
+
+```
+LoveBirdGameMode (Blueprint)
+└─> Component: BP_LBRoundManager (ULoveBirdRoundManagerComponent)
+    └─> Server-side game logic backend
+
+LoveBirdGameState (Blueprint)
+└─> Component: BP_LBSceneDirectorComponent (ULoveBirdSceneDirectorComponent)
+    └─> All Events (BlueprintImplementableEvent) implemented here
+    └─> All Server RPCs called from here
+    └─> Demo placeholders provided for all events and RPCs
+```
+
 ## Server RPCs (Blueprint Calls These)
 
 Call these functions from Blueprint to control the game flow:
@@ -135,3 +149,4 @@ Blueprint Event Graph:
 - **C++ only fires events** - Blueprint decides when to progress
 - **Server_GiveFeather must be called exactly twice** - After 2nd call, OnEliminationFinal fires
 - **All contestants must have tag 'contestant'** - Server_DiscoverContestants finds them by tag
+- **Demo placeholders already implemented** - All events and RPCs have placeholder nodes in BP_LBSceneDirectorComponent
